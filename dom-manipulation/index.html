@@ -72,6 +72,24 @@
             transform: translateY(-1px);
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
+        /* Sync status styles */
+        #syncStatus {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        /* Conflict resolution styles */
+        #conflictResolution {
+            transition: all 0.3s ease;
+        }
+
+        /* Auto sync button states */
+        #autoSyncBtn {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -92,7 +110,7 @@
             </select>
         </div>
         
-        <!-- Category Buttons (existing, but we'll enhance them) -->
+        <!-- Category Buttons -->
         <div class="category-selector">
             <p style="margin-bottom: 10px; font-weight: bold;">Quick Filters:</p>
             <!-- Buttons will be populated dynamically -->
@@ -137,6 +155,33 @@
         <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
             <button onclick="clearLocalStorage()" style="background-color: #dc3545;">Clear All Quotes</button>
             <p style="font-size: 0.9em; color: #666; margin: 5px 0;">Warning: This will remove all quotes from storage</p>
+        </div>
+    </div>
+
+    <!-- Server Sync & Conflict Resolution Section -->
+    <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #ffc107;">
+        <h3>Server Sync & Conflict Resolution</h3>
+        
+        <!-- Sync Controls -->
+        <div style="margin-bottom: 15px;">
+            <button onclick="manualSync()" style="background-color: #17a2b8;">Sync with Server</button>
+            <button onclick="toggleAutoSync()" id="autoSyncBtn" style="background-color: #6c757d;">Enable Auto Sync</button>
+            <span id="syncStatus" style="margin-left: 10px; padding: 4px 8px; border-radius: 4px; font-size: 0.9em;"></span>
+        </div>
+        
+        <!-- Conflict Resolution Area -->
+        <div id="conflictResolution" style="display: none; margin-top: 15px; padding: 15px; background: #fff3cd; border-radius: 6px; border: 1px solid #ffeaa7;">
+            <h4 style="color: #856404; margin-top: 0;">⚠️ Data Conflicts Detected</h4>
+            <p style="color: #856404; margin-bottom: 10px;" id="conflictMessage"></p>
+            <div id="conflictChoices" style="display: flex; gap: 10px;">
+                <!-- Conflict resolution buttons will be populated here -->
+            </div>
+        </div>
+        
+        <!-- Sync Info -->
+        <div style="margin-top: 10px; font-size: 0.9em; color: #666;">
+            <p>Last sync: <span id="lastSyncTime">Never</span></p>
+            <p>Auto sync: <span id="autoSyncStatus">Disabled</span></p>
         </div>
     </div>
 
