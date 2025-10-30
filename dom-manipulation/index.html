@@ -48,16 +48,60 @@
         .category-btn.active {
             background-color: #007bff;
         }
+        
+        /* Enhanced filtering styles */
+        #categoryFilter {
+            transition: border-color 0.3s ease;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+        #categoryFilter:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        #currentFilter {
+            transition: background-color 0.3s ease;
+        }
+        .category-btn {
+            transition: all 0.3s ease;
+        }
+        .category-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
     <h1>Dynamic Quote Generator</h1>
     
-    <div class="category-selector">
-        <button class="category-btn active" data-category="all">All Categories</button>
-        <button class="category-btn" data-category="inspiration">Inspiration</button>
-        <button class="category-btn" data-category="wisdom">Wisdom</button>
-        <button class="category-btn" data-category="humor">Humor</button>
+    <!-- Enhanced Category Filtering Section -->
+    <div style="margin: 20px 0; padding: 15px; background: white; border-radius: 8px;">
+        <h3>Filter Quotes by Category</h3>
+        
+        <!-- Dropdown Filter -->
+        <div style="margin-bottom: 15px;">
+            <label for="categoryFilter" style="display: block; margin-bottom: 5px; font-weight: bold;">
+                Filter by Category:
+            </label>
+            <select id="categoryFilter" onchange="filterQuotes()" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd; width: 200px;">
+                <option value="all">All Categories</option>
+                <!-- Categories will be populated dynamically -->
+            </select>
+        </div>
+        
+        <!-- Category Buttons (existing, but we'll enhance them) -->
+        <div class="category-selector">
+            <p style="margin-bottom: 10px; font-weight: bold;">Quick Filters:</p>
+            <!-- Buttons will be populated dynamically -->
+        </div>
+        
+        <!-- Current Filter Display -->
+        <div id="currentFilter" style="margin-top: 10px; padding: 8px; background: #e9ecef; border-radius: 4px; font-size: 0.9em;">
+            Currently showing: <strong>All Categories</strong>
+        </div>
     </div>
     
     <div id="quoteDisplay">
@@ -72,7 +116,8 @@
         <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
         <button onclick="addQuote()">Add Quote</button>
     </div>
-     -  
+
+    <!-- Import & Export Quotes Section -->
     <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px;">
         <h3>Import & Export Quotes</h3>
         
