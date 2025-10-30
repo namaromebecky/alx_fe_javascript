@@ -72,6 +72,28 @@
         <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
         <button onclick="addQuote()">Add Quote</button>
     </div>
+     -  
+    <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px;">
+        <h3>Import & Export Quotes</h3>
+        
+        <!-- Export Section -->
+        <div style="margin-bottom: 15px;">
+            <button onclick="exportToJson()" style="background-color: #28a745;">Export Quotes to JSON</button>
+            <p style="font-size: 0.9em; color: #666; margin: 5px 0;">Download all your quotes as a JSON file</p>
+        </div>
+        
+        <!-- Import Section -->
+        <div>
+            <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+            <p style="font-size: 0.9em; color: #666; margin: 5px 0;">Upload a JSON file to import quotes</p>
+        </div>
+        
+        <!-- Storage Controls -->
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+            <button onclick="clearLocalStorage()" style="background-color: #dc3545;">Clear All Quotes</button>
+            <p style="font-size: 0.9em; color: #666; margin: 5px 0;">Warning: This will remove all quotes from storage</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
