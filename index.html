@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        #quoteDisplay {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-height: 100px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .category-selector {
+            margin: 15px 0;
+        }
+        .category-btn {
+            background-color: #6c757d;
+        }
+        .category-btn.active {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Quote Generator</h1>
+    
+    <div class="category-selector">
+        <button class="category-btn active" data-category="all">All Categories</button>
+        <button class="category-btn" data-category="inspiration">Inspiration</button>
+        <button class="category-btn" data-category="wisdom">Wisdom</button>
+        <button class="category-btn" data-category="humor">Humor</button>
+    </div>
+    
+    <div id="quoteDisplay">
+        <p>Click "Show New Quote" to see a random quote!</p>
+    </div>
+    
+    <button id="newQuote">Show New Quote</button>
+    
+    <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px;">
+        <h3>Add New Quote</h3>
+        <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+        <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+        <button onclick="addQuote()">Add Quote</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
