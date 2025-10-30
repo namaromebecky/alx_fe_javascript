@@ -268,6 +268,19 @@ function displaySingleQuote(quote) {
     `;
 }
 
+// Display a specific quote
+function displayQuote(quote) {
+    const quoteDisplay = document.getElementById('quoteDisplay');
+    quoteDisplay.innerHTML = `
+        <blockquote style="font-size: 1.2em; font-style: italic; margin: 0;">
+            "${quote.text}"
+        </blockquote>
+        <p style="text-align: right; margin-top: 10px; color: #666;">
+            — <span style="background-color: #e9ecef; padding: 2px 8px; border-radius: 12px;">${quote.category}</span>
+        </p>
+    `;
+}
+
 // Function to add a new quote
 function addQuote() {
     const quoteText = document.getElementById('newQuoteText').value.trim();
